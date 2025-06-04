@@ -13,6 +13,10 @@
 
 <div class="dark-mode-overlay"></div>
 
+<!-- Tombol Musik -->
+<button id="musicBtn">🔊</button>
+<audio id="bgMusic" src="NIKI - You'll Be In My Hearth.mp3" loop></audio>
+
   <div class="container" id="mainPage">
     <div id="typing-text">Happy Birthdayyyy My Wife! </div>
     <img src="Yunyun3.jpg" alt="Foto Pacar" class="photo" />
@@ -169,6 +173,37 @@
     }
   }
   typeEffect();
+</script>
+
+<script>
+// Musik Latar
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+
+let isPlaying = false;
+
+musicBtn.addEventListener('click', () => {
+  if (isPlaying) {
+    music.pause();
+    musicBtn.textContent = '🔇';
+  } else {
+    music.play();
+    musicBtn.textContent = '🔊';
+  }
+  isPlaying = !isPlaying;
+});
+</script>
+<script>
+// Otomatis main musik saat halaman dibuka (opsional & tergantung izin browser)
+window.addEventListener('DOMContentLoaded', () => {
+  // Untuk browser yang mengizinkan autoplay
+  // music.play().then(() => {
+  //   isPlaying = true;
+  //   musicBtn.textContent = '🔊';
+  // }).catch(err => {
+  //   console.log('Autoplay diblokir browser:', err);
+  // });
+});
 </script>
 
 </body>
